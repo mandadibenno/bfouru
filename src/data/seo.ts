@@ -4,106 +4,110 @@
  */
 export const pageSeo = {
   home: {
-    title: 'BFourU | Branding, Website & Digital Marketing Agency',
+    title: "Digital Marketing & Branding Agency in Hyderabad | BFourU",
     description:
-      'One partner for branding, websites, digital marketing, automation, signage, print and events in India — with ethical, non-clinical support for clinics.',
+      "BFourU offers digital marketing, branding, website development and healthcare marketing services for businesses, doctors and hospitals in Hyderabad.",
   },
+
   services: {
-    title: 'Branding, Website, Marketing & Print Services | BFourU',
+    title: "Branding, Website, Marketing & Print Services | BFourU",
     description:
-      '14 services in one place: branding, design, websites, digital marketing, automation, OPD displays, signage, printing, merchandise and events.',
+      "14 services in one place: branding, design, websites, digital marketing, automation, OPD displays, signage, printing, merchandise and events.",
   },
   healthcare: {
-    title: 'Healthcare Marketing & Clinic Branding Agency | BFourU',
+    title: "Healthcare Marketing & Clinic Branding Agency | BFourU",
     description:
-      'Ethical, non-clinical branding, websites, OPD TV content, signage, patient education and reminders for doctors, clinics and hospitals in India.',
+      "Ethical, non-clinical branding, websites, OPD TV content, signage, patient education and reminders for doctors, clinics and hospitals in India.",
   },
   approach: {
-    title: 'How We Work: One Brief, One Partner | BFourU',
+    title: "How We Work: One Brief, One Partner | BFourU",
     description:
-      'A six-step process with one point of contact, project or subscription engagements and clear, customised quotations. See how BFourU works.',
+      "A six-step process with one point of contact, project or subscription engagements and clear, customised quotations. See how BFourU works.",
   },
   contact: {
-    title: 'Contact BFourU | Start a Branding or Website Project',
+    title: "Contact BFourU | Start a Branding or Website Project",
     description:
-      'Build your brief in two minutes and send it on WhatsApp or email — or call +91 91829 70829. Branding, websites, marketing, signage and more.',
+      "Build your brief in two minutes and send it on WhatsApp or email — or call +91 91829 70829. Branding, websites, marketing, signage and more.",
   },
   insights: {
-    title: 'Insights: Branding, Websites & Healthcare Marketing | BFourU',
+    title: "Insights: Branding, Websites & Healthcare Marketing | BFourU",
     description:
-      'Practical guides for business owners, doctors and clinics on branding, websites, Google Business Profile and ethical healthcare communication.',
+      "Practical guides for business owners, doctors and clinics on branding, websites, Google Business Profile and ethical healthcare communication.",
   },
 } as const;
 
-export const serviceSeo: Record<string, { title: string; description: string }> = {
-  'branding-identity': {
-    title: 'Branding & Logo Design for Businesses and Clinics',
+export const serviceSeo: Record<
+  string,
+  { title: string; description: string }
+> = {
+  "branding-identity": {
+    title: "Branding & Logo Design Agency in Hyderabad",
     description:
-      'Logo design, brand identity, visiting cards, letterheads, prescription pads and brand guidelines for businesses, doctors, clinics and hospitals.',
+      "Professional logo design, brand identity, brand guidelines, business cards and stationery design for businesses and clinics in Hyderabad.",
   },
-  'creative-design': {
-    title: 'Graphic Design: Social Media, Brochures & Posters',
+  "creative-design": {
+    title: "Graphic Design Services in Hyderabad",
     description:
-      'Social media creatives, posters, brochures, newsletters, infographics and festival designs — consistent with your brand, delivered by one team.',
+      "Creative graphic design services in Hyderabad for social media, brochures, posters, newsletters, infographics and business promotions.",
   },
-  'photography-media': {
-    title: 'Corporate & Clinic Photography and Video Production',
+  "photography-media": {
+    title: "Corporate Photography & Videography in Hyderabad",
     description:
-      'Doctor and team profile photography, clinic and office shoots, walkthrough and profile videos, reels, editing, subtitles and voice-over.',
+      "Professional corporate photography, doctor profile shoots, clinic photography, promotional videos and reels for businesses in Hyderabad.",
   },
-  'digital-marketing': {
-    title: 'Digital Marketing & Social Media Management',
+  "digital-marketing": {
+    title: "Digital Marketing & SEO Services in Hyderabad",
     description:
-      'Instagram, Facebook and YouTube management, Google Business Profile, SEO and monthly content plans — planned monthly and reported honestly.',
+      "Grow your business with SEO, social media marketing, Google Business Profile management and digital marketing services in Hyderabad.",
   },
-  'website-app-development': {
-    title: 'Website Design & App Development for Businesses',
+  "website-app-development": {
+    title: "Website & App Development Company in Hyderabad",
     description:
-      'Fast, mobile-first websites and apps with online booking, WhatsApp, domain, hosting and maintenance — for businesses, doctors and clinics.',
+      "Custom website design, responsive web development and mobile app development for businesses, startups, doctors and clinics in Hyderabad.",
   },
-  'smart-automation': {
-    title: 'WhatsApp Automation & Appointment Reminders',
+  "smart-automation": {
+    title: "Business & WhatsApp Automation Services in Hyderabad",
     description:
-      'WhatsApp Business integration, appointment confirmations and reminders, follow-ups, enquiry management and digital forms that save staff time.',
+      "Simplify business operations with WhatsApp automation, appointment reminders, enquiry management and automated follow-ups in Hyderabad.",
   },
-  'clinic-management-software': {
-    title: 'Clinic Management Software (Proposed)',
+  "clinic-management-software": {
+    title: "Clinic Management Software Solutions in Hyderabad",
     description:
-      'A proposed, customisable system for registration, appointments, OPD tokens, digital prescriptions, billing and reports. Tell us what you need.',
+      "Explore proposed clinic management software for patient registration, appointments, OPD tokens, digital prescriptions and billing.",
   },
-  'opd-tv-displays': {
-    title: 'OPD TV Displays & Digital Signage for Hospitals',
+  "opd-tv-displays": {
+    title: "OPD TV Displays & Hospital Digital Signage Solutions",
     description:
-      'OPD token and queue displays, doctor availability screens and doctor-approved health awareness content for clinic and hospital waiting areas.',
+      "OPD token displays, patient queue screens, doctor availability displays and doctor-approved health awareness content for clinics and hospitals.",
   },
-  'it-technical-solutions': {
-    title: 'IT Support, Email, Backup & Network Setup',
+  "it-technical-solutions": {
+    title: "Business IT Support & Technical Services in Hyderabad",
     description:
-      'Computer and network setup, professional email, cloud storage, secure backups, remote help and annual maintenance for offices and clinics.',
+      "IT support, computer and network setup, professional email, cloud storage, secure backups and remote assistance for businesses in Hyderabad.",
   },
-  'interior-branding-signage': {
-    title: 'Clinic & Office Signage and Interior Branding',
+  "interior-branding-signage": {
+    title: "Interior Branding & Signage Services in Hyderabad",
     description:
-      'Reception walls, exterior signboards, acrylic and LED signage, nameplates, wayfinding and wall graphics for offices, clinics and hospitals.',
+      "Transform business and healthcare spaces with interior branding, acrylic signage, LED signboards, reception branding and wayfinding solutions.",
   },
-  'printing-production': {
-    title: 'Printing: Visiting Cards, Brochures & Stationery',
+  "printing-production": {
+    title: "Commercial Printing Services in Hyderabad",
     description:
-      'Visiting cards, letterheads, prescription pads, brochures, posters, standees, flex banners, stickers and certificates — printed right, every time.',
+      "Business printing services in Hyderabad for visiting cards, brochures, prescription pads, posters, banners, standees and branded stationery.",
   },
-  'customized-merchandise': {
-    title: 'Custom Corporate Gifts & Branded Merchandise',
+  "customized-merchandise": {
+    title: "Custom Corporate Gifts & Branded Merchandise",
     description:
-      'Branded notebooks, diaries, pens, bags, bottles, calendars, gift kits, delegate kits, ID cards and lanyards for teams, clients and events.',
+      "Branded notebooks, diaries, pens, bags, bottles, calendars, gift kits, delegate kits, ID cards and lanyards for teams, clients and events.",
   },
-  'events-conferences': {
-    title: 'Event & Medical Conference Branding',
+  "events-conferences": {
+    title: "Event & Medical Conference Branding",
     description:
-      'Branding for conferences, CMEs, seminars, inaugurations and health camps: invitations, stage design, stalls, delegate kits and certificates.',
+      "Branding for conferences, CMEs, seminars, inaugurations and health camps: invitations, stage design, stalls, delegate kits and certificates.",
   },
-  'patient-education': {
-    title: 'Patient Education Materials & Health Awareness',
+  "patient-education": {
+    title: "Patient Education Materials & Health Awareness",
     description:
-      'Doctor-approved awareness posters, booklets, pregnancy and vaccination calendars, instruction cards and multilingual patient content.',
+      "Doctor-approved awareness posters, booklets, pregnancy and vaccination calendars, instruction cards and multilingual patient content.",
   },
 };

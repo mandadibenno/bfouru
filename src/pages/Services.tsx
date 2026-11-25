@@ -1,12 +1,17 @@
-import { Link } from 'react-router-dom';
-import { Icon } from '../components/Icon';
-import { CtaBand } from '../components/Section';
-import { ServiceCard } from '../components/ServiceBits';
-import { clusters, services, servicesInCluster, totalDeliverables } from '../data/services';
-import { pageSeo } from '../data/seo';
-import { absoluteUrl, breadcrumbLd, Seo } from '../lib/seo';
-import p from './Page.module.css';
-import s from './Services.module.css';
+import { Link } from "react-router-dom";
+import { Icon } from "../components/Icon";
+import { CtaBand } from "../components/Section";
+import { ServiceCard } from "../components/ServiceBits";
+import {
+  clusters,
+  services,
+  servicesInCluster,
+  totalDeliverables,
+} from "../data/services";
+import { pageSeo } from "../data/seo";
+import { absoluteUrl, breadcrumbLd, Seo } from "../lib/seo";
+import p from "./Page.module.css";
+import s from "./Services.module.css";
 
 export default function Services() {
   return (
@@ -16,13 +21,18 @@ export default function Services() {
         path="/services"
         jsonLd={[
           breadcrumbLd([
-            { name: 'Home', path: '/' },
-            { name: 'Services', path: '/services' },
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
           ]),
           {
-            '@context': 'https://schema.org',
-            '@type': 'ItemList',
-            itemListElement: services.map((sv, i) => ({ '@type': 'ListItem', position: i + 1, name: sv.name, url: absoluteUrl(`/services/${sv.slug}`) })),
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            itemListElement: services.map((sv, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              name: sv.name,
+              url: absoluteUrl(`/services/${sv.slug}`),
+            })),
           },
         ]}
       />
@@ -35,13 +45,15 @@ export default function Services() {
               {services.length} services · {totalDeliverables} deliverables
             </span>
           </div>
-          <h1 className={`display-l ${p.pageTitle}`}>
-            Everything your brand needs, organised in five clusters<span className="dot-accent">.</span>
+          <h1 className={`display-1 ${p.pageTitle}`}>
+            Branding, digital marketing and technology solutions
+            <span className="dot-accent">.</span>
           </h1>
           <div className={s.heroBottom}>
             <p className={`lead ${p.pageLead}`}>
-              Pick one service or combine several. Add what you need to your brief as you browse — we’ll send it to BFourU as
-              one request.
+              Explore 14 integrated services for businesses, doctors, clinics
+              and hospitals in Hyderabad. Choose individual services or combine
+              them into one customised solution.
             </p>
             <nav className={s.jump} aria-label="Jump to a cluster">
               {clusters.map((c) => (
@@ -58,7 +70,12 @@ export default function Services() {
       {clusters.map((c, ci) => {
         const list = servicesInCluster(c.id);
         return (
-          <section key={c.id} id={c.id} className={`section section--tight ${ci % 2 === 1 ? 'band-paper2' : ''}`} aria-labelledby={`${c.id}-title`}>
+          <section
+            key={c.id}
+            id={c.id}
+            className={`section section--tight ${ci % 2 === 1 ? "band-paper2" : ""}`}
+            aria-labelledby={`${c.id}-title`}
+          >
             <div className="container">
               <header className={s.clusterHead}>
                 <span className={s.clusterNum} data-reveal="fade">
@@ -90,7 +107,8 @@ export default function Services() {
         <div className={`container ${s.unsure}`}>
           <p className="h3">Not sure which services you need?</p>
           <p className="lead">
-            Tell us the problem instead. We’ll recommend the right mix — and tell you honestly if you need less than you think.
+            Tell us the problem instead. We’ll recommend the right mix — and
+            tell you honestly if you need less than you think.
           </p>
           <Link to="/contact" className="arrow-link">
             Describe your situation <Icon name="arrow" />

@@ -1,24 +1,32 @@
-import { Link, useParams } from 'react-router-dom';
-import { Glyph } from '../components/Glyph';
-import { Icon } from '../components/Icon';
-import { Mock } from '../components/Mock';
-import { CtaBand, SectionHead } from '../components/Section';
-import { AddToBrief, ClusterTag, RelatedServices } from '../components/ServiceBits';
-import { process } from '../data/content';
-import { clusterById, serviceBySlug, services } from '../data/services';
-import { articlesForService } from '../data/articles';
-import { serviceSeo } from '../data/seo';
-import { whatsappLink } from '../data/site';
-import { absoluteUrl, breadcrumbLd, Seo } from '../lib/seo';
-import NotFound from './NotFound';
-import p from './Page.module.css';
-import s from './Service.module.css';
+import { Link, useParams } from "react-router-dom";
+import { Glyph } from "../components/Glyph";
+import { Icon } from "../components/Icon";
+import { Mock } from "../components/Mock";
+import { CtaBand, SectionHead } from "../components/Section";
+import {
+  AddToBrief,
+  ClusterTag,
+  RelatedServices,
+} from "../components/ServiceBits";
+import { process } from "../data/content";
+import { clusterById, serviceBySlug, services } from "../data/services";
+import { articlesForService } from "../data/articles";
+import { serviceSeo } from "../data/seo";
+import { whatsappLink } from "../data/site";
+import { absoluteUrl, breadcrumbLd, Seo } from "../lib/seo";
+import NotFound from "./NotFound";
+import p from "./Page.module.css";
+import s from "./Service.module.css";
 
 /** Lower-case a short name for use mid-sentence, keeping acronyms such as OPD, TV and IT intact. */
-const inSentence = (name: string) => name.split(' ').map((w) => (/^[A-Z0-9]{2,}$/.test(w) ? w : w.toLowerCase())).join(' ');
+const inSentence = (name: string) =>
+  name
+    .split(" ")
+    .map((w) => (/^[A-Z0-9]{2,}$/.test(w) ? w : w.toLowerCase()))
+    .join(" ");
 
 export default function Service() {
-  const { slug = '' } = useParams();
+  const { slug = "" } = useParams();
   const sv = serviceBySlug(slug);
   if (!sv) return <NotFound />;
 
@@ -35,25 +43,45 @@ export default function Service() {
         path={`/services/${sv.slug}`}
         jsonLd={[
           breadcrumbLd([
-            { name: 'Home', path: '/' },
-            { name: 'Services', path: '/services' },
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
             { name: sv.name, path: `/services/${sv.slug}` },
           ]),
           {
-            '@context': 'https://schema.org',
-            '@type': 'Service',
+            "@context": "https://schema.org",
+            "@type": "Service",
             name: sv.name,
             serviceType: cluster.name,
             description: sv.intro,
-            provider: { '@id': absoluteUrl('/#organization') },
-            areaServed: { '@type': 'Country', name: 'India' },
-            audience: { '@type': 'Audience', audienceType: sv.audience === 'healthcare' ? 'Doctors, clinics and hospitals' : 'Businesses, professionals and healthcare organisations' },
-            url: absoluteUrl(`/services/${sv.slug}`),
-            hasOfferCatalog: {
-              '@type': 'OfferCatalog',
-              name: `${sv.name} deliverables`,
-              itemListElement: sv.deliverables.map((d) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: d } })),
+            provider: { "@id": absoluteUrl("/#organization") },
+            areaServed: [
+              { "@type": "City", name: "Hyderabad" },
+              { "@type": "State", name: "Telangana" },
+              { "@type": "Country", name: "India" },
+            ],
+            audience: {
+              "@type": "Audience",
+              audienceType:
+                sv.audience === "healthcare"
+                  ? "Doctors, clinics and hospitals"
+                  : "Businesses, professionals and healthcare organisations",
             },
+            url: absoluteUrl(`/services/${sv.slug}`),
+            ...(!sv.proposed
+              ? {
+                  hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: `${sv.name} deliverables`,
+                    itemListElement: sv.deliverables.map((d) => ({
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service",
+                        name: d,
+                      },
+                    })),
+                  },
+                }
+              : {}),
           },
         ]}
       />
@@ -76,9 +104,16 @@ export default function Service() {
               </ol>
             </nav>
             <div className={s.meta}>
-              <Glyph cells={sv.glyph.cells} accent={sv.glyph.accent} size={40} className={s.heroGlyph} />
+              <Glyph
+                cells={sv.glyph.cells}
+                accent={sv.glyph.accent}
+                size={40}
+                className={s.heroGlyph}
+              />
               <ClusterTag service={sv} />
-              {sv.audience === 'healthcare' && <span className="tag tag--teal">Healthcare</span>}
+              {sv.audience === "healthcare" && (
+                <span className="tag tag--teal">Healthcare</span>
+              )}
               {sv.proposed && <span className="tag tag--accent">Proposed</span>}
             </div>
             <h1 className={`display-l ${s.title}`}>{sv.name}</h1>
@@ -86,7 +121,12 @@ export default function Service() {
             <p className={s.intro}>{sv.intro}</p>
             <div className={s.ctas}>
               <AddToBrief slug={sv.slug} />
-              <a href={whatsappLink(waMsg)} target="_blank" rel="noopener noreferrer" className="btn btn--secondary btn--text-only">
+              <a
+                href={whatsappLink(waMsg)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn--secondary btn--text-only"
+              >
                 <span className="wa-dot" aria-hidden="true" />
                 Ask on WhatsApp
               </a>
@@ -96,13 +136,18 @@ export default function Service() {
             <div className={s.stageInner}>
               <Mock type={sv.mock} className={s.stageMock} />
             </div>
-            <p className={s.stageNote}>Illustrative example · names are fictional</p>
+            <p className={s.stageNote}>
+              Illustrative example · names are fictional
+            </p>
           </div>
         </div>
       </section>
 
       {/* What's included */}
-      <section className="section section--tight band-paper2" aria-labelledby="included-title">
+      <section
+        className="section section--tight band-paper2"
+        aria-labelledby="included-title"
+      >
         <div className="container">
           <SectionHead
             index={`${sv.deliverables.length} deliverables`}
@@ -110,14 +155,19 @@ export default function Service() {
             id="included-title"
             title={
               <>
-                Everything in {inSentence(sv.short)}, under one brief<span className="dot-accent">.</span>
+                Everything in {inSentence(sv.short)}, under one brief
+                <span className="dot-accent">.</span>
               </>
             }
           />
           <ol className={s.deliverables}>
             {sv.deliverables.map((d, i) => (
-              <li key={d} data-reveal style={{ ['--d' as string]: `${(i % 6) * 40}ms` }}>
-                <span className={s.dNum}>{String(i + 1).padStart(2, '0')}</span>
+              <li
+                key={d}
+                data-reveal
+                style={{ ["--d" as string]: `${(i % 6) * 40}ms` }}
+              >
+                <span className={s.dNum}>{String(i + 1).padStart(2, "0")}</span>
                 <span>{d}</span>
               </li>
             ))}
@@ -126,7 +176,10 @@ export default function Service() {
       </section>
 
       {/* Who & outcome */}
-      <section className="section section--tight" aria-label="Who it is for and the outcome">
+      <section
+        className="section section--tight"
+        aria-label="Who it is for and the outcome"
+      >
         <div className={`container ${s.who}`}>
           <div className={s.whoCol} data-reveal>
             <h2 className="eyebrow">Who it’s for</h2>
@@ -136,14 +189,22 @@ export default function Service() {
               ))}
             </ul>
           </div>
-          <div className={s.whoCol} data-reveal style={{ ['--d' as string]: '100ms' }}>
+          <div
+            className={s.whoCol}
+            data-reveal
+            style={{ ["--d" as string]: "100ms" }}
+          >
             <h2 className="eyebrow">The outcome</h2>
             <p className={s.outcome}>{sv.outcome}</p>
           </div>
         </div>
         {sv.note && (
           <div className="container">
-            <aside className={`${s.note} ${sv.proposed ? s.noteAccent : ''}`} data-reveal aria-label="Good to know">
+            <aside
+              className={`${s.note} ${sv.proposed ? s.noteAccent : ""}`}
+              data-reveal
+              aria-label="Good to know"
+            >
               <span className={s.noteIcon} aria-hidden="true">
                 i
               </span>
@@ -157,7 +218,10 @@ export default function Service() {
       </section>
 
       {/* Process strip */}
-      <section className="section section--tight band-ink" aria-labelledby="how-title">
+      <section
+        className="section section--tight band-ink"
+        aria-labelledby="how-title"
+      >
         <div className="container">
           <SectionHead
             index="06 steps"
@@ -166,12 +230,14 @@ export default function Service() {
             split
             title={
               <>
-                Same clear process, every time<span className="dot-accent">.</span>
+                Same clear process, every time
+                <span className="dot-accent">.</span>
               </>
             }
             intro={
               <>
-                One point of contact from brief to delivery — and nothing goes live without your approval.{' '}
+                One point of contact from brief to delivery — and nothing goes
+                live without your approval.{" "}
                 <Link to="/approach" className="link">
                   See our approach
                 </Link>
@@ -180,8 +246,14 @@ export default function Service() {
           />
           <ol className={s.strip}>
             {process.map((st, i) => (
-              <li key={st.title} data-reveal style={{ ['--d' as string]: `${i * 60}ms` }}>
-                <span className={s.stripNum}>{String(i + 1).padStart(2, '0')}</span>
+              <li
+                key={st.title}
+                data-reveal
+                style={{ ["--d" as string]: `${i * 60}ms` }}
+              >
+                <span className={s.stripNum}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <span className={s.stripTitle}>{st.title}</span>
               </li>
             ))}
@@ -190,7 +262,10 @@ export default function Service() {
       </section>
 
       {/* Related */}
-      <section className="section section--tight" aria-labelledby="related-title">
+      <section
+        className="section section--tight"
+        aria-labelledby="related-title"
+      >
         <div className="container">
           <SectionHead
             label="Works well with"
@@ -198,7 +273,8 @@ export default function Service() {
             split
             title={
               <>
-                One brand, connected services<span className="dot-accent">.</span>
+                One brand, connected services
+                <span className="dot-accent">.</span>
               </>
             }
             intro={`${sv.short} rarely lives alone. These are often planned alongside it — so everything looks and works as one.`}
@@ -238,7 +314,7 @@ export default function Service() {
         }
         text="Tell us what you have today and where you want to be. We’ll come back with a clear scope and a customised quotation."
         waMessage={waMsg}
-        tone={sv.audience === 'healthcare' ? 'sage' : 'paper2'}
+        tone={sv.audience === "healthcare" ? "sage" : "paper2"}
       />
     </>
   );

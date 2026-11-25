@@ -1,29 +1,40 @@
-import { Link } from 'react-router-dom';
-import { Commitments, Faq, PatientJourney, ProcessSteps, StartingPoints } from '../components/Blocks';
-import { Glyph } from '../components/Glyph';
-import { HeroMark } from '../components/HeroMark';
-import { BtnArrow, Icon } from '../components/Icon';
-import { CtaBand, SectionHead } from '../components/Section';
-import { ClusterRows, DeliverableMarquee } from '../components/ServiceBits';
-import { VendorDiagram } from '../components/VendorDiagram';
-import { problems, principles, faqs } from '../data/content';
-import { clusterById, services, totalDeliverables } from '../data/services';
-import { site, whatsappLink } from '../data/site';
-import { pageSeo } from '../data/seo';
-import { organizationLd, Seo, websiteLd } from '../lib/seo';
-import s from './Home.module.css';
+import { Link } from "react-router-dom";
+import {
+  Commitments,
+  Faq,
+  PatientJourney,
+  ProcessSteps,
+  StartingPoints,
+} from "../components/Blocks";
+import { Glyph } from "../components/Glyph";
+import { HeroMark } from "../components/HeroMark";
+import { BtnArrow, Icon } from "../components/Icon";
+import { CtaBand, SectionHead } from "../components/Section";
+import { ClusterRows, DeliverableMarquee } from "../components/ServiceBits";
+import { VendorDiagram } from "../components/VendorDiagram";
+import { problems, principles, faqs } from "../data/content";
+import { pageSeo } from "../data/seo";
+import { clusterById, services, totalDeliverables } from "../data/services";
+import { site, whatsappLink } from "../data/site";
+import { organizationLd, websiteLd, Seo } from "../lib/seo";
+import s from "./Home.module.css";
 
 const faqLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 };
 
 export default function Home() {
   return (
     <>
       <Seo
-        {...pageSeo.home}
+        title={pageSeo.home.title}
+        description={pageSeo.home.description}
         path="/"
         jsonLd={[organizationLd(), websiteLd(), faqLd]}
       />
@@ -32,8 +43,10 @@ export default function Home() {
       <section className={s.hero} aria-labelledby="hero-title">
         <div className={`container ${s.heroInner}`}>
           <div className={s.heroTop}>
-            <p className="eyebrow">Creative · Digital · Technology</p>
-            <p className={s.heroFor}>For growing businesses &amp; healthcare teams</p>
+            <p className="eyebrow">Branding · Digital Marketing · Technology</p>
+            <p className={s.heroFor}>
+              For businesses &amp; healthcare teams in Hyderabad
+            </p>
           </div>
 
           <div className={s.heroMain}>
@@ -61,8 +74,11 @@ export default function Home() {
 
           <div className={s.heroBottom}>
             <p className={`lead ${s.heroLead}`}>
-              Brand, design, marketing, media, websites, automation, signage, print and events — under one roof. You get one
-              accountable partner instead of a dozen vendors, and a brand that finally looks like one business everywhere.
+              BFourU is a branding and digital marketing agency serving
+              businesses in Hyderabad. From creative design and website
+              development to healthcare marketing, automation, signage, print
+              and events — everything under one roof, with one accountable
+              partner.
             </p>
             <div className={s.heroCtas}>
               <Link to="/contact" className="btn">
@@ -70,7 +86,7 @@ export default function Home() {
                 <BtnArrow />
               </Link>
               <a
-                href={whatsappLink('Hi BFourU, I’d like to discuss a project.')}
+                href={whatsappLink("Hi BFourU, I’d like to discuss a project.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--secondary btn--text-only"
@@ -95,24 +111,36 @@ export default function Home() {
               <span className="eyebrow">The problem</span>
               <span className="section-head__index">01</span>
             </div>
-            <h2 id="problem-title" className={`h2 ${s.problemTitle}`} data-reveal>
-              Most growing businesses are held together by a <span className="serif">patchwork</span> of vendors.
+            <h2
+              id="problem-title"
+              className={`h2 ${s.problemTitle}`}
+              data-reveal
+            >
+              Most growing businesses are held together by a{" "}
+              <span className="serif">patchwork</span> of vendors.
             </h2>
             <p className="lead" data-reveal>
-              Every new need means a new supplier, a new brief and a new version of your brand. It costs time you don’t have — and
-              it shows.
+              Every new need means a new supplier, a new brief and a new version
+              of your brand. It costs time you don’t have — and it shows.
             </p>
           </div>
           <ol className={s.problemList}>
             {problems.map((p, i) => (
-              <li key={p.text} className={s.problemItem} data-reveal style={{ ['--d' as string]: `${i * 50}ms` }}>
-                <span className={s.problemNum}>{String(i + 1).padStart(2, '0')}</span>
+              <li
+                key={p.text}
+                className={s.problemItem}
+                data-reveal
+                style={{ ["--d" as string]: `${i * 50}ms` }}
+              >
+                <span className={s.problemNum}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <div>
                   <h3 className="h4">{p.text}</h3>
                   <p>{p.detail}</p>
                 </div>
                 <span className={s.problemFix}>
-                  {p.cluster === 'all' ? (
+                  {p.cluster === "all" ? (
                     <>
                       <Icon name="arrow" /> One partner
                     </>
@@ -151,7 +179,11 @@ export default function Home() {
       </section>
 
       {/* ================= 03 WHAT WE DO ================= */}
-      <section className="section" aria-labelledby="services-title" id="what-we-do">
+      <section
+        className="section"
+        aria-labelledby="services-title"
+        id="what-we-do"
+      >
         <div className="container">
           <SectionHead
             index="03"
@@ -160,13 +192,14 @@ export default function Home() {
             split
             title={
               <>
-                {services.length} services. Five ways we help<span className="dot-accent">.</span>
+                {services.length} creative, digital and technology services
+                <span className="dot-accent">.</span>
               </>
             }
             intro={
               <>
-                {totalDeliverables} deliverables — from a logo to LED signage — organised around the questions businesses
-                actually ask.{' '}
+                {totalDeliverables} deliverables — from a logo to LED signage —
+                organised around the questions businesses actually ask.{" "}
                 <Link to="/services" className="link">
                   Browse all services
                 </Link>
@@ -185,17 +218,24 @@ export default function Home() {
               <span className="eyebrow">Healthcare specialisation</span>
               <span className="section-head__index">04</span>
             </div>
-            <h2 id="health-title" className={`display-l ${s.healthTitle}`} data-reveal>
-              You care for patients<span className={s.tealDot}>.</span> We take care of <span className="serif">the rest</span>
+            <h2
+              id="health-title"
+              className={`display-l ${s.healthTitle}`}
+              data-reveal
+            >
+              You care for patients<span className={s.tealDot}>.</span> We take
+              care of <span className="serif">the rest</span>
               <span className={s.tealDot}>.</span>
             </h2>
             <p className="lead" data-reveal>
-              Non-clinical support for doctors, clinics and hospitals — from the first Google search to the follow-up
-              reminder. Always ethical, always consent-first.
+              Ethical healthcare marketing, hospital branding, clinic website
+              development, OPD TV displays and patient education solutions for
+              doctors, clinics and hospitals in Hyderabad. Always ethical,
+              always consent-first.
             </p>
             <div className={s.healthCtas} data-reveal>
               <Link to="/healthcare" className="btn">
-                Explore healthcare
+                Explore healthcare marketing
                 <BtnArrow />
               </Link>
             </div>
@@ -230,7 +270,8 @@ export default function Home() {
             split
             title={
               <>
-                Not sure where to begin? Start with a set<span className="dot-accent">.</span>
+                Not sure where to begin? Start with a set
+                <span className="dot-accent">.</span>
               </>
             }
             intro="Common combinations for common moments. Add a set to your brief, then make it yours — remove what you don’t need, add what you do."
@@ -248,11 +289,12 @@ export default function Home() {
               <span className="section-head__index">06</span>
             </div>
             <h2 id="process-title" className="h2" data-reveal>
-              Six steps. One point of contact throughout<span className="dot-accent">.</span>
+              Six steps. One point of contact throughout
+              <span className="dot-accent">.</span>
             </h2>
             <p className="lead" data-reveal>
-              Project-based or by subscription, every engagement follows the same clear path — with nothing going live
-              without your approval.
+              Project-based or by subscription, every engagement follows the
+              same clear path — with nothing going live without your approval.
             </p>
             <Link to="/approach" className="arrow-link" data-reveal>
               Our approach &amp; engagement models <Icon name="arrow" />
@@ -279,9 +321,17 @@ export default function Home() {
           />
           <ul className={s.principles}>
             {principles.map((p, i) => (
-              <li key={p.title} data-reveal style={{ ['--d' as string]: `${i * 70}ms` }}>
+              <li
+                key={p.title}
+                data-reveal
+                style={{ ["--d" as string]: `${i * 70}ms` }}
+              >
                 <Glyph
-                  cells={(['tl', 'ci', 'sq', 'br'] as const).map((c, k) => (k === i ? 'ci' : c)) as ['tl', 'ci', 'sq', 'br']}
+                  cells={
+                    (["tl", "ci", "sq", "br"] as const).map((c, k) =>
+                      k === i ? "ci" : c,
+                    ) as ["tl", "ci", "sq", "br"]
+                  }
                   accent={i as 0 | 1 | 2 | 3}
                   size={30}
                 />
@@ -311,11 +361,20 @@ export default function Home() {
               Questions, answered<span className="dot-accent">.</span>
             </h2>
             <p className="lead" data-reveal>
-              Something else on your mind?{' '}
-              <a href={whatsappLink('Hi BFourU, I have a question.')} target="_blank" rel="noopener noreferrer" className="link">
+              Something else on your mind?{" "}
+              <a
+                href={whatsappLink("Hi BFourU, I have a question.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link"
+              >
                 Ask us on WhatsApp
-              </a>{' '}
-              or call <a href={site.phone.href} className="link">{site.phone.display}</a>.
+              </a>{" "}
+              or call{" "}
+              <a href={site.phone.href} className="link">
+                {site.phone.display}
+              </a>
+              .
             </p>
           </div>
           <Faq />
