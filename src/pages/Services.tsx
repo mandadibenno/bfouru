@@ -3,6 +3,7 @@ import { Icon } from '../components/Icon';
 import { CtaBand } from '../components/Section';
 import { ServiceCard } from '../components/ServiceBits';
 import { clusters, services, servicesInCluster, totalDeliverables } from '../data/services';
+import { pageSeo } from '../data/seo';
 import { absoluteUrl, breadcrumbLd, Seo } from '../lib/seo';
 import p from './Page.module.css';
 import s from './Services.module.css';
@@ -11,8 +12,7 @@ export default function Services() {
   return (
     <>
       <Seo
-        title="Services — Branding, Marketing, Websites, Automation & More | BFourU"
-        description={`${services.length} services and ${totalDeliverables} deliverables in five clusters: Brand & Creative, Digital & Web, Technology & Automation, Spaces & Print, and Events & Education.`}
+        {...pageSeo.services}
         path="/services"
         jsonLd={[
           breadcrumbLd([

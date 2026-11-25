@@ -23,7 +23,7 @@ const preloads = [/^bricolage-grotesque-latin-opsz-normal-.*\.woff2$/, /^instrum
 template = template.replace('<!--app-head-->', `${preloads}\n    <!--app-head-->`);
 const { render, routes } = await import(pathToFileURL(serverEntry).href);
 
-const siteUrl = (process.env.VITE_SITE_URL || 'https://www.bfouru.com').replace(/\/$/, '');
+const siteUrl = (process.env.VITE_SITE_URL || 'https://bfouru.com').replace(/\/$/, '');
 const indexable = [];
 
 for (const url of routes) {

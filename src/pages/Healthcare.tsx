@@ -8,6 +8,7 @@ import { ServiceCard } from '../components/ServiceBits';
 import { audiences, exclusions, faqs } from '../data/content';
 import { services } from '../data/services';
 import { site, whatsappLink } from '../data/site';
+import { pageSeo } from '../data/seo';
 import { breadcrumbLd, Seo } from '../lib/seo';
 import s from './Healthcare.module.css';
 
@@ -20,8 +21,7 @@ export default function Healthcare() {
   return (
     <>
       <Seo
-        title="Healthcare Branding, Marketing & Patient Communication | BFourU"
-        description="Non-clinical branding, websites, ethical marketing, OPD TV content, signage, patient education and automation for doctors, clinics and hospitals."
+        {...pageSeo.healthcare}
         path="/healthcare"
         jsonLd={[
           breadcrumbLd([
@@ -191,6 +191,12 @@ export default function Healthcare() {
             intro="Healthcare communication carries responsibility. These commitments apply to every healthcare engagement — in line with applicable advertising, professional-ethics and data-protection requirements."
           />
           <Commitments tone="sage" />
+          <p style={{ marginTop: '2rem' }}>
+            <Link to="/insights/nmc-advertising-guidelines-doctors-checklist" className="arrow-link">
+              Read our NMC advertising checklist for doctors and clinics
+              <Icon name="arrow" />
+            </Link>
+          </p>
         </div>
       </section>
 

@@ -4,12 +4,15 @@ import { StaticRouter } from 'react-router-dom';
 import App from './App';
 import { HeadContext, renderHead, type HeadData } from './lib/seo';
 import { services } from './data/services';
+import { articles } from './data/articles';
 
 export const routes = [
   '/',
   '/services',
   ...services.map((s) => `/services/${s.slug}`),
   '/healthcare',
+  '/insights',
+  ...articles.map((a) => `/insights/${a.slug}`),
   '/approach',
   '/contact',
   '/privacy',

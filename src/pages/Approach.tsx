@@ -4,6 +4,7 @@ import { Glyph } from '../components/Glyph';
 import { Icon } from '../components/Icon';
 import { CtaBand, SectionHead } from '../components/Section';
 import { engagementModels, exclusions, principles, quoteFactors } from '../data/content';
+import { pageSeo } from '../data/seo';
 import { breadcrumbLd, Seo } from '../lib/seo';
 import p from './Page.module.css';
 import s from './Approach.module.css';
@@ -35,8 +36,7 @@ export default function Approach() {
   return (
     <>
       <Seo
-        title="Our Approach — How We Work | BFourU"
-        description="One brief, one brand standard, one point of contact. A six-step process, project or subscription engagements, and clear, customised quotations."
+        {...pageSeo.approach}
         path="/approach"
         jsonLd={[
           breadcrumbLd([

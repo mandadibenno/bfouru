@@ -7,8 +7,10 @@ import { MobileActionBar } from './components/MobileActionBar';
 import { BriefProvider } from './lib/brief';
 import { useRevealAll } from './lib/hooks';
 import Approach from './pages/Approach';
+import Article from './pages/Article';
 import Contact from './pages/Contact';
 import Healthcare from './pages/Healthcare';
+import Insights from './pages/Insights';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Privacy from './pages/Privacy';
@@ -58,6 +60,8 @@ function Shell() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/insights" element={<Insights />} />
+          <Route path="/insights/:slug" element={<Article />} />
           <Route path="/services/:slug" element={<Service />} />
           <Route path="/healthcare" element={<Healthcare />} />
           <Route path="/approach" element={<Approach />} />

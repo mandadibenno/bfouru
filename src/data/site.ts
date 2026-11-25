@@ -6,7 +6,7 @@
 export const site = {
   name: 'BFourU',
   legalName: 'BFourU', // TODO: confirm registered legal entity name
-  url: (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://www.bfouru.com', // TODO: confirm domain
+  url: (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://bfouru.com', // live domain (www redirects here)
   tagline: 'One Brand. Multiple Solutions. Complete Support.',
   healthcareTagline: 'You Care for Patients. We Take Care of the Rest.',
   description:
@@ -24,6 +24,19 @@ export const site = {
   formEndpoint: (import.meta.env.VITE_FORM_ENDPOINT as string | undefined) || '',
   locale: 'en_IN',
 } as const;
+
+/**
+ * SEO profile details. Fill these in once confirmed — they feed structured data (Google's knowledge panel / local results).
+ * sameAs: full URLs of official profiles, e.g. 'https://www.instagram.com/bfouru', 'https://www.linkedin.com/company/bfouru'.
+ * address: e.g. { streetAddress: '…', addressLocality: 'Hyderabad', addressRegion: 'Telangana', postalCode: '500001', addressCountry: 'IN' }.
+ */
+export const siteProfile: {
+  sameAs: string[];
+  address: null | { streetAddress: string; addressLocality: string; addressRegion: string; postalCode: string; addressCountry: 'IN' };
+} = {
+  sameAs: [], // TODO: add official social profile URLs
+  address: null, // TODO: add the confirmed office address
+};
 
 export function whatsappLink(message?: string) {
   const base = `https://wa.me/${site.whatsapp.number}`;

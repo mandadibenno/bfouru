@@ -215,6 +215,9 @@ export function Header() {
           <Link to="/approach" className={s.mobileLink}>
             Approach
           </Link>
+          <Link to="/insights" className={s.mobileLink}>
+            Insights
+          </Link>
           <Link to="/contact" className={s.mobileLink}>
             Contact
           </Link>

@@ -9,7 +9,8 @@ import { VendorDiagram } from '../components/VendorDiagram';
 import { problems, principles, faqs } from '../data/content';
 import { clusterById, services, totalDeliverables } from '../data/services';
 import { site, whatsappLink } from '../data/site';
-import { organizationLd, Seo } from '../lib/seo';
+import { pageSeo } from '../data/seo';
+import { organizationLd, Seo, websiteLd } from '../lib/seo';
 import s from './Home.module.css';
 
 const faqLd = {
@@ -22,10 +23,9 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="BFourU — Branding, Digital Marketing, Websites & Automation | One Partner"
-        description="One partner for branding, design, digital marketing, websites, automation, signage, print and events — with specialist support for doctors, clinics and hospitals."
+        {...pageSeo.home}
         path="/"
-        jsonLd={[organizationLd(), faqLd]}
+        jsonLd={[organizationLd(), websiteLd(), faqLd]}
       />
 
       {/* ================= HERO ================= */}

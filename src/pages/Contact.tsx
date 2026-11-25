@@ -5,6 +5,7 @@ import { BtnArrow, Icon } from '../components/Icon';
 import { clusters, serviceBySlug, servicesInCluster } from '../data/services';
 import { mailtoLink, site, whatsappLink } from '../data/site';
 import { useBrief } from '../lib/brief';
+import { pageSeo } from '../data/seo';
 import { breadcrumbLd, organizationLd, Seo } from '../lib/seo';
 import s from './Contact.module.css';
 
@@ -144,8 +145,7 @@ export default function Contact() {
   return (
     <>
       <Seo
-        title="Start a Project — Build Your Brief | BFourU"
-        description={`Tell BFourU what you need: choose services, share a few details and send your brief by WhatsApp or email. Call ${site.phone.display}.`}
+        {...pageSeo.contact}
         path="/contact"
         jsonLd={[
           organizationLd(),

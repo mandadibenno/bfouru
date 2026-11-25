@@ -1,0 +1,71 @@
+.list {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 900px) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: clamp(1.25rem, 1rem + 1vw, 2rem);
+  border-radius: var(--radius-lg, 24px);
+  background: var(--white, #fbf8f2);
+  border: 1px solid var(--line);
+  transition: transform 320ms var(--ease), box-shadow 320ms var(--ease);
+  min-height: 100%;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px -12px rgba(16, 33, 28, 0.22);
+}
+.card h2,
+.card h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.cardMeta {
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.note {
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: var(--paper-2, #eae4d8);
+  border-left: 4px solid var(--accent);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.prose ol {
+  display: grid;
+  gap: 0.6rem;
+  padding-left: 1.4rem;
+  list-style: decimal;
+}
+.related {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.relatedLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}

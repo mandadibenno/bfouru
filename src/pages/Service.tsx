@@ -6,6 +6,8 @@ import { CtaBand, SectionHead } from '../components/Section';
 import { AddToBrief, ClusterTag, RelatedServices } from '../components/ServiceBits';
 import { process } from '../data/content';
 import { clusterById, serviceBySlug, services } from '../data/services';
+import { articlesForService } from '../data/articles';
+import { serviceSeo } from '../data/seo';
 import { whatsappLink } from '../data/site';
 import { absoluteUrl, breadcrumbLd, Seo } from '../lib/seo';
 import NotFound from './NotFound';
@@ -28,8 +30,8 @@ export default function Service() {
   return (
     <>
       <Seo
-        title={`${sv.name}${sv.proposed ? ' (Proposed)' : ''} — ${cluster.name} | BFourU`}
-        description={`${sv.tagline} ${sv.deliverables.length} deliverables from one accountable partner — BFourU.`}
+        title={`${serviceSeo[sv.slug]?.title ?? sv.name} | BFourU`}
+        description={serviceSeo[sv.slug]?.description ?? sv.tagline}
         path={`/services/${sv.slug}`}
         jsonLd={[
           breadcrumbLd([
@@ -44,7 +46,9 @@ export default function Service() {
             serviceType: cluster.name,
             description: sv.intro,
             provider: { '@id': absoluteUrl('/#organization') },
-            areaServed: 'IN',
+            areaServed: { '@type': 'Country', name: 'India' },
+            audience: { '@type': 'Audience', audienceType: sv.audience === 'healthcare' ? 'Doctors, clinics and hospitals' : 'Businesses, professionals and healthcare organisations' },
+            url: absoluteUrl(`/services/${sv.slug}`),
             hasOfferCatalog: {
               '@type': 'OfferCatalog',
               name: `${sv.name} deliverables`,
@@ -200,6 +204,21 @@ export default function Service() {
             intro={`${sv.short} rarely lives alone. These are often planned alongside it — so everything looks and works as one.`}
           />
           <RelatedServices slugs={sv.related} />
+          {articlesForService(sv.slug).length > 0 && (
+            <div className={s.reading}>
+              <span className="eyebrow">Related reading</span>
+              <ul>
+                {articlesForService(sv.slug).map((a) => (
+                  <li key={a.slug}>
+                    <Link to={`/insights/${a.slug}`} className="arrow-link">
+                      {a.title}
+                      <Icon name="arrow" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <Link to={`/services/${next.slug}`} className={s.next}>
             <span className={s.nextLabel}>Next service</span>
             <span className={s.nextName}>

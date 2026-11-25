@@ -64,6 +64,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/insights" className="link link--draw">
+                Insights
+              </Link>
+            </li>
+            <li>
               <Link to="/contact" className="link link--draw">
                 Contact
               </Link>
