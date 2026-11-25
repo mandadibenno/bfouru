@@ -1,6 +1,6 @@
 # 07 · SEO: what was done and what to do next
 
-_Last updated: 25 November 2026. Live site: https://bfouru.com (www redirects to it)._
+_Last updated: 25 November 2026. Live site: https://www.bfouru.com (www redirects to it)._
 
 ## 1. Audit (before)
 The site already had a strong technical base:
@@ -45,7 +45,7 @@ Each guide is linked from the related service pages ("Related reading"), the hea
 - To regenerate the images: `npm run build && npm run og && npm run build`.
 
 **Consistency**
-- The default domain in code is now `https://bfouru.com`, matching the live site and the deploy workflow.
+- The default domain in code is now `https://www.bfouru.com`, matching the live site and the deploy workflow.
 
 **Not changed**
 - Visible page copy, design and URLs stayed the same.
@@ -78,7 +78,7 @@ Adding a **city** will strengthen every one of these (for example, "branding age
 1. **Deploy:** push to `main`. GitHub Actions publishes the site to bfouru.com.
 2. **Google Search Console** (search.google.com/search-console):
    - Add the domain property `bfouru.com` and verify it through a DNS TXT record at your domain registrar.
-   - Submit `https://bfouru.com/sitemap.xml`.
+   - Submit `https://www.bfouru.com/sitemap.xml`.
    - Use URL Inspection → Request indexing for the home, healthcare and services pages and the three guides.
 3. **Bing Webmaster Tools:** import the site from Search Console (one click). Bing also feeds some AI search tools.
 4. **Domain email:** set up `hello@bfouru.com` and update `site.email`. A Gmail address looks less trustworthy to customers and search engines.

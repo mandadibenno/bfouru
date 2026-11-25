@@ -6,7 +6,7 @@
 export const site = {
   name: 'BFourU',
   legalName: 'BFourU', // TODO: confirm registered legal entity name
-  url: (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://bfouru.com', // live domain (www redirects here)
+  url: (import.meta.env.VITE_SITE_URL as string | undefined) ?? 'https://www.bfouru.com', // live domain (www redirects here)
   tagline: 'One Brand. Multiple Solutions. Complete Support.',
   healthcareTagline: 'You Care for Patients. We Take Care of the Rest.',
   description:
