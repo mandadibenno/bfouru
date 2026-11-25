@@ -1,0 +1,189 @@
+{
+  "capHeightEm": 0.66,
+  "layouts": {
+    "horizontal": {
+      "width": 402,
+      "top": 0,
+      "bottom": 92,
+      "mark": {
+        "x": 0,
+        "y": 0,
+        "size": 92
+      },
+      "capHeight": 52.800000000000004
+    },
+    "stacked": {
+      "width": 268.16,
+      "top": 0,
+      "bottom": 230.80000000000004,
+      "mark": {
+        "x": 65.44,
+        "y": 0,
+        "size": 137.28000000000003
+      },
+      "capHeight": 52.800000000000004
+    },
+    "symbol": {
+      "width": 100,
+      "top": 0,
+      "bottom": 100,
+      "mark": {
+        "x": 0,
+        "y": 0,
+        "size": 100
+      }
+    },
+    "wordmark": {
+      "width": 274,
+      "top": 0,
+      "bottom": 53.92,
+      "mark": null
+    }
+  },
+  "index": [
+    {
+      "name": "bfouru-horizontal-full-colour",
+      "layout": "horizontal",
+      "colourway": "full-colour",
+      "aspect": 4.3696
+    },
+    {
+      "name": "bfouru-horizontal-reversed",
+      "layout": "horizontal",
+      "colourway": "reversed",
+      "aspect": 4.3696
+    },
+    {
+      "name": "bfouru-horizontal-mono-ink",
+      "layout": "horizontal",
+      "colourway": "mono-ink",
+      "aspect": 4.3696
+    },
+    {
+      "name": "bfouru-horizontal-mono-paper",
+      "layout": "horizontal",
+      "colourway": "mono-paper",
+      "aspect": 4.3696
+    },
+    {
+      "name": "bfouru-horizontal-black",
+      "layout": "horizontal",
+      "colourway": "black",
+      "aspect": 4.3696
+    },
+    {
+      "name": "bfouru-horizontal-white",
+      "layout": "horizontal",
+      "colourway": "white",
+      "aspect": 4.3696
+    },
+    {
+      "name": "bfouru-stacked-full-colour",
+      "layout": "stacked",
+      "colourway": "full-colour",
+      "aspect": 1.1619
+    },
+    {
+      "name": "bfouru-stacked-reversed",
+      "layout": "stacked",
+      "colourway": "reversed",
+      "aspect": 1.1619
+    },
+    {
+      "name": "bfouru-stacked-mono-ink",
+      "layout": "stacked",
+      "colourway": "mono-ink",
+      "aspect": 1.1619
+    },
+    {
+      "name": "bfouru-stacked-mono-paper",
+      "layout": "stacked",
+      "colourway": "mono-paper",
+      "aspect": 1.1619
+    },
+    {
+      "name": "bfouru-stacked-black",
+      "layout": "stacked",
+      "colourway": "black",
+      "aspect": 1.1619
+    },
+    {
+      "name": "bfouru-stacked-white",
+      "layout": "stacked",
+      "colourway": "white",
+      "aspect": 1.1619
+    },
+    {
+      "name": "bfouru-symbol-full-colour",
+      "layout": "symbol",
+      "colourway": "full-colour",
+      "aspect": 1
+    },
+    {
+      "name": "bfouru-symbol-reversed",
+      "layout": "symbol",
+      "colourway": "reversed",
+      "aspect": 1
+    },
+    {
+      "name": "bfouru-symbol-mono-ink",
+      "layout": "symbol",
+      "colourway": "mono-ink",
+      "aspect": 1
+    },
+    {
+      "name": "bfouru-symbol-mono-paper",
+      "layout": "symbol",
+      "colourway": "mono-paper",
+      "aspect": 1
+    },
+    {
+      "name": "bfouru-symbol-black",
+      "layout": "symbol",
+      "colourway": "black",
+      "aspect": 1
+    },
+    {
+      "name": "bfouru-symbol-white",
+      "layout": "symbol",
+      "colourway": "white",
+      "aspect": 1
+    },
+    {
+      "name": "bfouru-wordmark-full-colour",
+      "layout": "wordmark",
+      "colourway": "full-colour",
+      "aspect": 5.0816
+    },
+    {
+      "name": "bfouru-wordmark-reversed",
+      "layout": "wordmark",
+      "colourway": "reversed",
+      "aspect": 5.0816
+    },
+    {
+      "name": "bfouru-wordmark-mono-ink",
+      "layout": "wordmark",
+      "colourway": "mono-ink",
+      "aspect": 5.0816
+    },
+    {
+      "name": "bfouru-wordmark-mono-paper",
+      "layout": "wordmark",
+      "colourway": "mono-paper",
+      "aspect": 5.0816
+    },
+    {
+      "name": "bfouru-wordmark-black",
+      "layout": "wordmark",
+      "colourway": "black",
+      "aspect": 5.0816
+    },
+    {
+      "name": "bfouru-wordmark-white",
+      "layout": "wordmark",
+      "colourway": "white",
+      "aspect": 5.0816
+    }
+  ]
+}

@@ -1,0 +1,347 @@
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-h) + clamp(1.5rem, 0.5rem + 3vw, 3.5rem));
+  padding-bottom: clamp(1.5rem, 1rem + 2vw, 3rem);
+  overflow: hidden;
+}
+.heroInner {
+  display: grid;
+  gap: clamp(1.75rem, 1rem + 2.5vw, 3rem);
+}
+.heroTop {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.heroFor {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.heroMain {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .heroMain {
+    grid-template-columns: 1fr auto;
+  }
+}
+.heroTitle {
+  display: grid;
+}
+.line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+.line > span {
+  display: inline-block;
+  animation: rise 1100ms var(--ease-out) both;
+}
+.line:nth-child(2) > span {
+  animation-delay: 110ms;
+}
+.line:nth-child(3) > span {
+  animation-delay: 220ms;
+}
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+.heroMark {
+  display: none;
+}
+@media (min-width: 900px) {
+  .heroMark {
+    display: block;
+    padding-top: 0.75rem;
+    animation: fadeIn 900ms 500ms var(--ease) both;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+.heroBottom {
+  display: grid;
+  gap: 1.5rem;
+  animation: fadeUp 900ms 350ms var(--ease-out) both;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@media (min-width: 960px) {
+  .heroBottom {
+    grid-template-columns: minmax(0, 1.2fr) auto;
+    align-items: end;
+    gap: var(--gap);
+  }
+}
+.heroLead {
+  max-width: 36em;
+}
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+@media (max-width: 479px) {
+  .heroCtas > * {
+    flex: 1 1 100%;
+  }
+  .heroCtas :global(.btn) {
+    justify-content: space-between;
+  }
+  .heroCtas :global(.btn--text-only) {
+    justify-content: center;
+  }
+}
+.heroShelf {
+  margin-top: clamp(2rem, 1rem + 3vw, 3.5rem);
+  animation: fadeIn 1200ms 600ms var(--ease) both;
+}
+
+/* ================= PROBLEM ================= */
+.problem {
+  display: grid;
+  gap: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+@media (min-width: 1024px) {
+  .problem {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: var(--gap) clamp(3rem, 2rem + 4vw, 7rem);
+  }
+  .problemLeft {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+    align-self: start;
+  }
+}
+.problemLeft {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+.problemTitle {
+  max-width: 13em;
+}
+.problemList {
+  border-top: 1px solid var(--line);
+}
+.problemItem {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.25rem 1rem;
+  padding-block: 1.35rem;
+  border-bottom: 1px solid var(--line);
+}
+.problemItem p {
+  color: var(--ink-2);
+  font-size: 0.98rem;
+  margin-top: 0.3rem;
+}
+.problemNum {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  padding-top: 0.3rem;
+}
+.problemFix {
+  grid-column: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-self: start;
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.problemFix svg {
+  width: 14px;
+  height: 14px;
+}
+@media (min-width: 640px) {
+  .problemItem {
+    grid-template-columns: 2.5rem 1fr auto;
+  }
+  .problemFix {
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 0.25rem;
+    align-self: start;
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--pill);
+    background: rgba(228, 87, 46, 0.1);
+  }
+}
+
+/* ================= HEALTHCARE ================= */
+.healthGrid {
+  display: grid;
+  gap: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+@media (min-width: 1024px) {
+  .healthGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(3rem, 2rem + 4vw, 6rem);
+    align-items: center;
+  }
+}
+.healthLeft {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+.healthLeft :global(.section-head__top) {
+  border-color: rgba(16, 33, 28, 0.16);
+}
+.healthLeft :global(.eyebrow::before) {
+  background: var(--teal);
+}
+.healthTitle {
+  max-width: 11em;
+}
+.tealDot {
+  color: var(--teal);
+}
+.healthCtas {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.healthRight {
+  display: grid;
+  gap: 1rem;
+}
+.journeyHead {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.healthPromises {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 0.5rem;
+  font-size: 0.92rem;
+  font-weight: 550;
+}
+.healthPromises li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.healthPromises svg {
+  width: 18px;
+  height: 18px;
+  color: var(--teal);
+}
+
+/* ================= PROCESS ================= */
+.processGrid {
+  display: grid;
+  gap: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+@media (min-width: 1024px) {
+  .processGrid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 2rem + 4vw, 7rem);
+  }
+  .processLeft {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+    align-self: start;
+  }
+}
+.processLeft {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+/* ================= PRINCIPLES ================= */
+.principles {
+  display: grid;
+  gap: 2rem var(--gap);
+}
+@media (min-width: 640px) {
+  .principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .principles {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.principles li {
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--ink);
+}
+.principles li svg {
+  margin-bottom: 0.6rem;
+}
+.principles p {
+  color: var(--ink-2);
+  font-size: 0.98rem;
+}
+.commitWrap {
+  margin-top: clamp(3rem, 2rem + 4vw, 6rem);
+  display: grid;
+  gap: 1.25rem;
+}
+.commitHead {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ================= FAQ ================= */
+.faqGrid {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 1024px) {
+  .faqGrid {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(3rem, 2rem + 4vw, 7rem);
+  }
+  .faqLeft {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+    align-self: start;
+  }
+}
+.faqLeft {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}

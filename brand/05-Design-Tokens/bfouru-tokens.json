@@ -1,0 +1,368 @@
+{
+  "$schema": "BFourU design tokens v1.0 — source: website src/styles/global.css",
+  "color": {
+    "ink": {
+      "value": "#10211C",
+      "rgb": [
+        16,
+        33,
+        28
+      ],
+      "cmykApprox": [
+        52,
+        0,
+        15,
+        87
+      ],
+      "name": "Forest Ink",
+      "usage": "Primary — text, dark surfaces, primary buttons"
+    },
+    "paper": {
+      "value": "#F3EFE7",
+      "rgb": [
+        243,
+        239,
+        231
+      ],
+      "cmykApprox": [
+        0,
+        2,
+        5,
+        5
+      ],
+      "name": "Ivory Paper",
+      "usage": "Primary — main background"
+    },
+    "accent": {
+      "value": "#E4572E",
+      "rgb": [
+        228,
+        87,
+        46
+      ],
+      "cmykApprox": [
+        0,
+        62,
+        80,
+        11
+      ],
+      "name": "Persimmon",
+      "usage": "Signature accent — the mark’s dot, highlights, large accents"
+    },
+    "teal": {
+      "value": "#1E6B58",
+      "rgb": [
+        30,
+        107,
+        88
+      ],
+      "cmykApprox": [
+        72,
+        0,
+        18,
+        58
+      ],
+      "name": "Care Teal",
+      "usage": "Secondary — healthcare accent, success, links on light"
+    },
+    "sage": {
+      "value": "#D3DFD3",
+      "rgb": [
+        211,
+        223,
+        211
+      ],
+      "cmykApprox": [
+        5,
+        0,
+        5,
+        13
+      ],
+      "name": "Sage",
+      "usage": "Secondary surface — healthcare and calm sections"
+    },
+    "marigold": {
+      "value": "#E9B44C",
+      "rgb": [
+        233,
+        180,
+        76
+      ],
+      "cmykApprox": [
+        0,
+        23,
+        67,
+        9
+      ],
+      "name": "Marigold",
+      "usage": "Tertiary — illustrations, editorial italics on dark"
+    },
+    "tealDark": {
+      "value": "#0F2B25",
+      "rgb": [
+        15,
+        43,
+        37
+      ],
+      "cmykApprox": [
+        65,
+        0,
+        14,
+        83
+      ],
+      "name": "Deep Teal",
+      "usage": "Illustration and screen surfaces"
+    },
+    "white": {
+      "value": "#FBF8F2",
+      "rgb": [
+        251,
+        248,
+        242
+      ],
+      "cmykApprox": [
+        0,
+        1,
+        4,
+        2
+      ],
+      "name": "Warm White",
+      "usage": "Cards and documents on paper"
+    },
+    "paper2": {
+      "value": "#EAE4D8",
+      "rgb": [
+        234,
+        228,
+        216
+      ],
+      "cmykApprox": [
+        0,
+        3,
+        8,
+        8
+      ],
+      "name": "Sand",
+      "usage": "Raised surfaces and alternating bands"
+    },
+    "paper3": {
+      "value": "#DED6C6",
+      "rgb": [
+        222,
+        214,
+        198
+      ],
+      "cmykApprox": [
+        0,
+        4,
+        11,
+        13
+      ],
+      "name": "Stone",
+      "usage": "Borders, chips, dividers"
+    },
+    "ink2": {
+      "value": "#33433D",
+      "rgb": [
+        51,
+        67,
+        61
+      ],
+      "cmykApprox": [
+        24,
+        0,
+        9,
+        74
+      ],
+      "name": "Ink 80",
+      "usage": "Secondary text"
+    },
+    "muted": {
+      "value": "#5A6862",
+      "rgb": [
+        90,
+        104,
+        98
+      ],
+      "cmykApprox": [
+        13,
+        0,
+        6,
+        59
+      ],
+      "name": "Ink 60",
+      "usage": "Tertiary text, captions (on light only)"
+    },
+    "onInkMuted": {
+      "value": "#A9B5AF",
+      "rgb": [
+        169,
+        181,
+        175
+      ],
+      "cmykApprox": [
+        7,
+        0,
+        3,
+        29
+      ],
+      "name": "Mist",
+      "usage": "Secondary text on Forest Ink"
+    },
+    "accentInk": {
+      "value": "#A63A1B",
+      "rgb": [
+        166,
+        58,
+        27
+      ],
+      "cmykApprox": [
+        0,
+        65,
+        84,
+        35
+      ],
+      "name": "Persimmon Deep",
+      "usage": "Accent for small text on light backgrounds"
+    }
+  },
+  "font": {
+    "display": {
+      "value": "Bricolage Grotesque",
+      "fallback": "\"Arial Narrow\", Arial, \"Helvetica Neue\", sans-serif",
+      "weights": [
+        400,
+        600,
+        700
+      ]
+    },
+    "text": {
+      "value": "Instrument Sans",
+      "fallback": "\"Segoe UI\", Roboto, Arial, sans-serif",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ]
+    },
+    "serifAccent": {
+      "value": "Newsreader",
+      "style": "italic",
+      "fallback": "Georgia, \"Times New Roman\", serif",
+      "weights": [
+        400
+      ]
+    }
+  },
+  "fontSize": {
+    "displayXL": {
+      "value": "clamp(3.1rem, 1.55rem + 6.9vw, 8rem)",
+      "print": "64–120pt"
+    },
+    "displayL": {
+      "value": "clamp(2.6rem, 1.6rem + 4.4vw, 5.25rem)",
+      "print": "48–72pt"
+    },
+    "h2": {
+      "value": "clamp(2.1rem, 1.45rem + 2.9vw, 3.75rem)",
+      "print": "32–44pt"
+    },
+    "h3": {
+      "value": "clamp(1.35rem, 1.15rem + 0.9vw, 1.9rem)",
+      "print": "18–24pt"
+    },
+    "h4": {
+      "value": "clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem)",
+      "print": "14–16pt"
+    },
+    "lead": {
+      "value": "clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem)",
+      "print": "13–16pt"
+    },
+    "body": {
+      "value": "clamp(1rem, 0.98rem + 0.1vw, 1.0625rem)",
+      "print": "9.5–11pt"
+    },
+    "small": {
+      "value": "0.875rem",
+      "print": "8–9pt"
+    },
+    "eyebrow": {
+      "value": "0.75rem",
+      "print": "7–8pt, uppercase, +140 tracking"
+    }
+  },
+  "lineHeight": {
+    "display": 0.92,
+    "heading": 1.02,
+    "body": 1.6,
+    "lead": 1.5
+  },
+  "letterSpacing": {
+    "displayXL": "-0.045em",
+    "display": "-0.035em",
+    "heading": "-0.02em",
+    "body": "0",
+    "eyebrow": "0.14em"
+  },
+  "space": {
+    "1": "4px",
+    "2": "8px",
+    "3": "12px",
+    "4": "16px",
+    "5": "24px",
+    "6": "32px",
+    "7": "48px",
+    "8": "64px",
+    "9": "96px",
+    "10": "128px",
+    "section": "clamp(4.5rem, 3rem + 7vw, 10rem)",
+    "gutter": "clamp(1rem, 4vw, 3.5rem)"
+  },
+  "layout": {
+    "maxWidth": "1440px",
+    "columns": {
+      "desktop": 12,
+      "tablet": 6,
+      "mobile": 4
+    },
+    "gap": "clamp(1rem, 0.6rem + 1.6vw, 2rem)"
+  },
+  "radius": {
+    "sm": "10px",
+    "md": "16px",
+    "lg": "28px",
+    "pill": "999px"
+  },
+  "shadow": {
+    "lift": "0 1px 0 rgba(16,33,28,.04), 0 12px 32px -12px rgba(16,33,28,.22)",
+    "panel": "0 30px 80px -30px rgba(16,33,28,.35)"
+  },
+  "motion": {
+    "easeStandard": {
+      "value": "cubic-bezier(0.2, 0.7, 0.1, 1)"
+    },
+    "easeOut": {
+      "value": "cubic-bezier(0.16, 1, 0.3, 1)"
+    },
+    "durationFeedback": {
+      "value": "180ms"
+    },
+    "durationShort": {
+      "value": "320ms"
+    },
+    "durationReveal": {
+      "value": "700ms"
+    },
+    "durationScene": {
+      "value": "1100ms"
+    },
+    "stagger": {
+      "value": "60ms"
+    },
+    "revealDistance": {
+      "value": "28px"
+    }
+  }
+}

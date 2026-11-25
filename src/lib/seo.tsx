@@ -1,0 +1,126 @@
+import { createContext, useContext, useEffect } from 'react';
+import { site } from '../data/site';
+
+export interface HeadData {
+  title: string;
+  description: string;
+  path: string;
+  jsonLd?: object[];
+  noindex?: boolean;
+  ogType?: 'website' | 'article';
+}
+
+/** During prerender the server passes a collector; the last <Seo> rendered wins. */
+export const HeadContext = createContext<{ head?: HeadData } | null>(null);
+
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+export function absoluteUrl(path: string) {
+  return site.url.replace(/\/$/, '') + (path === '/' ? '/' : path);
+}
+
+export function renderHead(h: HeadData): string {
+  const url = absoluteUrl(h.path);
+  const image = absoluteUrl('/og-image.png');
+  const tags = [
+    `<title>${esc(h.title)}</title>`,
+    `<meta name="description" content="${esc(h.description)}" />`,
+    `<link rel="canonical" href="${esc(url)}" />`,
+    h.noindex ? `<meta name="robots" content="noindex" />` : '',
+    `<meta property="og:site_name" content="${esc(site.name)}" />`,
+    `<meta property="og:type" content="${h.ogType ?? 'website'}" />`,
+    `<meta property="og:locale" content="${site.locale}" />`,
+    `<meta property="og:title" content="${esc(h.title)}" />`,
+    `<meta property="og:description" content="${esc(h.description)}" />`,
+    `<meta property="og:url" content="${esc(url)}" />`,
+    `<meta property="og:image" content="${esc(image)}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    ...(h.jsonLd ?? []).map(
+      (obj) => `<script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`,
+    ),
+  ];
+  return tags.filter(Boolean).join('\n    ');
+}
+
+function setMeta(attr: 'name' | 'property', key: string, value: string) {
+  let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', value);
+}
+
+export function Seo(props: HeadData) {
+  const collector = useContext(HeadContext);
+  if (collector) collector.head = props;
+
+  useEffect(() => {
+    document.title = props.title;
+    setMeta('name', 'description', props.description);
+    setMeta('property', 'og:title', props.title);
+    setMeta('property', 'og:description', props.description);
+    setMeta('property', 'og:url', absoluteUrl(props.path));
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = absoluteUrl(props.path);
+    // Replace structured data
+    document.head.querySelectorAll('script[type="application/ld+json"]').forEach((n) => n.remove());
+    (props.jsonLd ?? []).forEach((obj) => {
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.text = JSON.stringify(obj);
+      document.head.appendChild(s);
+    });
+  }, [props.title, props.description, props.path, props.jsonLd]);
+
+  return null;
+}
+
+/* ---------- Structured data helpers ---------- */
+export const organizationLd = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': absoluteUrl('/#organization'),
+  name: site.name,
+  url: absoluteUrl('/'),
+  slogan: site.tagline,
+  description: site.description,
+  telephone: site.phone.href.replace('tel:', ''),
+  email: site.email,
+  areaServed: 'IN',
+  knowsAbout: [
+    'Branding',
+    'Graphic design',
+    'Digital marketing',
+    'Website development',
+    'Healthcare marketing',
+    'Digital signage content',
+    'Business automation',
+  ],
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: site.phone.href.replace('tel:', ''),
+      email: site.email,
+      availableLanguage: ['English'],
+    },
+  ],
+});
+
+export const breadcrumbLd = (items: { name: string; path: string }[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.name,
+    item: absoluteUrl(it.path),
+  })),
+});

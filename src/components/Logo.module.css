@@ -1,0 +1,41 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.36em;
+  font-size: 30px;
+  line-height: 1;
+}
+.lg {
+  font-size: 44px;
+}
+.ink {
+  color: var(--ink);
+}
+.paper {
+  color: var(--on-ink);
+}
+.mark {
+  width: 0.92em;
+  height: 0.92em;
+  flex: none;
+}
+.mark :global(.glyph-cell) {
+  transition: transform 600ms var(--ease-out);
+}
+.word {
+  font-family: var(--font-display);
+  font-weight: 680;
+  font-size: 0.8em;
+  letter-spacing: -0.035em;
+  transform: translateY(0.01em);
+}
+
+@media (hover: hover) {
+  a:hover > .logo .mark :global(.glyph-cell:nth-child(1)),
+  a:hover > .logo .mark :global(.glyph-cell:nth-child(4)) {
+    transform: rotate(180deg);
+  }
+  a:hover > .logo .mark :global(.glyph-cell:nth-child(2)) {
+    transform: scale(0.82);
+  }
+}

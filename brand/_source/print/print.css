@@ -1,0 +1,19 @@
+/* BFourU print templates — shared styles. Units in mm; 3mm bleed on every sheet. */
+@font-face { font-family: 'Bricolage Grotesque'; src: url('../../../presentation/fonts/BricolageGrotesque-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Bricolage Grotesque'; src: url('../../../presentation/fonts/BricolageGrotesque-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Instrument Sans'; src: url('../../../presentation/fonts/InstrumentSans-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Instrument Sans'; src: url('../../../presentation/fonts/InstrumentSans-SemiBold.ttf'); font-weight: 600; }
+@font-face { font-family: 'Instrument Sans'; src: url('../../../presentation/fonts/InstrumentSans-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Newsreader'; src: url('../../../presentation/fonts/Newsreader-Italic.ttf'); font-style: italic; }
+:root { --ink:#10211C; --ink2:#33433D; --muted:#5A6862; --mist:#A9B5AF; --paper:#F3EFE7; --paper2:#EAE4D8; --paper3:#DED6C6; --white:#FBF8F2; --accent:#E4572E; --accent-ink:#A63A1B; --teal:#1E6B58; --sage:#D3DFD3; --mari:#E9B44C; --b: 3mm; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html, body { background: #777; }
+body { font-family: 'Instrument Sans', Arial, sans-serif; color: var(--ink); padding: 20px; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+.sheet { position: relative; overflow: hidden; background: var(--paper); flex: none; }
+.trim { position: absolute; inset: var(--b); } /* trim box; content positioned inside */
+.d { font-family: 'Bricolage Grotesque', Arial, sans-serif; font-weight: 700; letter-spacing: -0.035em; line-height: .95; }
+.serif { font-family: 'Newsreader', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+.eb { font-weight: 700; text-transform: uppercase; letter-spacing: .16em; }
+.dot { color: var(--accent); }
+.mark-crop { position: absolute; }
+svg { display: block; }

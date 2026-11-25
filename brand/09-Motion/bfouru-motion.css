@@ -1,0 +1,18 @@
+/* BFourU motion tokens + reference keyframes */
+:root {
+  --bf-ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --bf-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --bf-dur-feedback: 180ms;
+  --bf-dur-short: 320ms;
+  --bf-dur-reveal: 800ms;
+  --bf-dur-scene: 1100ms;
+  --bf-stagger: 90ms;
+}
+@keyframes bf-rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes bf-line { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes bf-cell { from { opacity: 0; transform: rotate(-90deg) scale(.4); } to { opacity: 1; transform: none; } }
+.bf-reveal { animation: bf-rise var(--bf-dur-reveal) var(--bf-ease) both; }
+.bf-line-mask { display: block; overflow: hidden; } .bf-line-mask > span { display: block; animation: bf-line var(--bf-dur-scene) var(--bf-ease-out) both; }
+/* Logo: give each mark cell (<path>/<circle>/<rect>) class bf-cell and --i: 0..3 */
+.bf-cell { transform-box: fill-box; transform-origin: center; animation: bf-cell 700ms var(--bf-ease-out) both; animation-delay: calc(var(--i, 0) * 70ms); }
+@media (prefers-reduced-motion: reduce) { .bf-reveal, .bf-line-mask > span, .bf-cell { animation: none; } }

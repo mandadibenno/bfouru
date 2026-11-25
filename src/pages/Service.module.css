@@ -1,0 +1,303 @@
+.hero {
+  padding-top: calc(var(--header-h) + clamp(1.5rem, 1rem + 2vw, 3rem));
+  padding-bottom: clamp(3rem, 2rem + 4vw, 6rem);
+}
+.heroGrid {
+  display: grid;
+  gap: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+@media (min-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(3rem, 2rem + 3vw, 5rem);
+    align-items: center;
+  }
+}
+.heroText {
+  display: grid;
+  gap: 1.4rem;
+  align-content: start;
+  animation: up 900ms var(--ease-out) both;
+}
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.heroGlyph :global(.glyph-cell) {
+  animation: spin 1100ms var(--ease-out) both;
+}
+.heroGlyph :global(.glyph-cell:nth-child(2)) {
+  animation-delay: 80ms;
+}
+.heroGlyph :global(.glyph-cell:nth-child(3)) {
+  animation-delay: 160ms;
+}
+.heroGlyph :global(.glyph-cell:nth-child(4)) {
+  animation-delay: 240ms;
+}
+@keyframes spin {
+  from {
+    transform: rotate(-180deg) scale(0.3);
+    opacity: 0;
+  }
+}
+.title {
+  max-width: 12em;
+}
+.tagline {
+  color: var(--ink);
+  font-weight: 500;
+}
+.intro {
+  color: var(--ink-2);
+  max-width: 38em;
+}
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 479px) {
+  .ctas > * {
+    flex: 1 1 100%;
+  }
+  .ctas :global(.btn) {
+    justify-content: space-between;
+  }
+  .ctas :global(.btn--text-only) {
+    justify-content: center;
+  }
+}
+.stage {
+  display: grid;
+  gap: 0.75rem;
+  animation: up 1100ms 150ms var(--ease-out) both;
+}
+.stageInner {
+  container-type: inline-size;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(20rem, 14rem + 18vw, 34rem);
+  padding: clamp(1.5rem, 1rem + 3vw, 3.5rem);
+  border-radius: var(--radius-lg);
+  background-color: var(--paper-2);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center;
+  overflow: hidden;
+}
+.stageInner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 60% at 50% 50%, transparent 40%, var(--paper-2) 100%);
+  pointer-events: none;
+}
+.stageMock {
+  position: relative;
+  z-index: 1;
+  --mock-fs: min(3.3cqi, 20px);
+  animation: floaty 7s ease-in-out infinite;
+}
+@keyframes floaty {
+  50% {
+    transform: translateY(-8px) rotate(-0.6deg);
+  }
+}
+.stageNote {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* Deliverables */
+.deliverables {
+  display: grid;
+  border-top: 1px solid var(--line-strong);
+}
+@media (min-width: 760px) {
+  .deliverables {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--gap);
+  }
+}
+.deliverables li {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(1.02rem, 0.95rem + 0.3vw, 1.18rem);
+  font-weight: 500;
+  line-height: 1.35;
+}
+.dNum {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--accent-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Who / outcome */
+.who {
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 900px) {
+  .who {
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(3rem, 2rem + 4vw, 7rem);
+  }
+}
+.whoCol {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--ink);
+}
+.audiences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.audiences li {
+  padding: 0.55rem 1rem;
+  border-radius: var(--pill);
+  border: 1.5px solid var(--line-strong);
+  font-weight: 550;
+  font-size: 0.95rem;
+}
+.outcome {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+.note {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+  padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  border-radius: var(--radius);
+  background: var(--sage);
+  color: var(--ink);
+  max-width: 56rem;
+}
+.noteAccent {
+  background: rgba(228, 87, 46, 0.12);
+}
+.noteIcon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+}
+.noteHead {
+  font-weight: 650;
+  margin-bottom: 0.25rem;
+}
+
+/* Process strip */
+.strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line-on-ink);
+  border: 1px solid var(--line-on-ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+@media (min-width: 640px) {
+  .strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .strip {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+.strip li {
+  display: grid;
+  gap: 2rem;
+  padding: 1.25rem;
+  background: var(--ink);
+}
+.stripNum {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 650;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--accent);
+}
+.stripTitle {
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Next */
+.next {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: clamp(3rem, 2rem + 3vw, 5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.nextLabel {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nextName {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 620;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  transition: color 300ms var(--ease);
+}
+.nextName svg {
+  width: clamp(1.75rem, 1.4rem + 1.5vw, 3rem);
+  height: auto;
+  flex: none;
+  transition: transform 500ms var(--ease-out);
+}
+.next:hover .nextName {
+  color: var(--accent-ink);
+}
+.next:hover .nextName svg {
+  transform: translateX(8px);
+}

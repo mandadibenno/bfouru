@@ -1,0 +1,247 @@
+.hero {
+  padding-top: calc(var(--header-h) + clamp(2rem, 1rem + 3vw, 4rem));
+  padding-bottom: clamp(3rem, 2rem + 4vw, 6rem);
+  overflow: hidden;
+}
+.heroGrid {
+  display: grid;
+  gap: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+@media (min-width: 1100px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    align-items: center;
+  }
+}
+.heroText {
+  display: grid;
+  gap: 1.6rem;
+  animation: up 1000ms var(--ease-out) both;
+}
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+.heroTop {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(16, 33, 28, 0.16);
+}
+.heroTop :global(.eyebrow::before) {
+  background: var(--teal);
+}
+.title {
+  font-size: clamp(2.8rem, 1.6rem + 5.2vw, 6.5rem);
+}
+.dot {
+  color: var(--teal);
+}
+.lead {
+  color: var(--ink-2);
+}
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+@media (max-width: 479px) {
+  .ctas > * {
+    flex: 1 1 100%;
+  }
+  .ctas :global(.btn) {
+    justify-content: space-between;
+  }
+  .ctas :global(.btn--text-only) {
+    justify-content: center;
+  }
+}
+
+/* Collage of healthcare deliverables */
+.collage {
+  position: relative;
+  height: clamp(22rem, 15rem + 22vw, 34rem);
+  --mock-fs: clamp(9px, 0.4rem + 0.55vw, 14px);
+  animation: up 1200ms 200ms var(--ease-out) both;
+}
+.cTv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotate(-2deg);
+}
+.cChat {
+  position: absolute;
+  right: 0;
+  top: 32%;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+.cCal {
+  position: absolute;
+  left: 12%;
+  bottom: 0;
+  transform: rotate(-4deg);
+  z-index: 1;
+}
+@media (max-width: 599px) {
+  .collage {
+    height: 25rem;
+    --mock-fs: 9.5px;
+  }
+  .cCal {
+    left: 0;
+  }
+}
+
+/* Who */
+.who {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 1024px) {
+  .who {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 2rem + 4vw, 7rem);
+    align-items: end;
+  }
+}
+.who > div {
+  display: grid;
+  gap: 1.5rem;
+}
+.whoTitle {
+  max-width: 12em;
+}
+.audienceList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.audienceList li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.1rem 0.65rem 0.85rem;
+  border-radius: var(--pill);
+  background: var(--sage);
+  font-weight: 550;
+  --glyph-accent: var(--teal);
+}
+
+/* Specialist */
+.specGrid {
+  display: grid;
+  gap: var(--gap);
+}
+@media (min-width: 760px) {
+  .specGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.core {
+  margin-top: clamp(2.5rem, 2rem + 2vw, 4rem);
+  display: grid;
+  gap: 1rem;
+}
+.coreHead {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.coreList {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+@media (min-width: 640px) {
+  .coreList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--gap);
+  }
+}
+@media (min-width: 1024px) {
+  .coreList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.coreLink {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 0.25rem;
+  border-bottom: 1px solid var(--line);
+  font-weight: 550;
+  transition: color var(--dur) var(--ease);
+}
+.coreLink svg:last-child {
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+  transition:
+    transform 300ms var(--ease-out),
+    opacity 300ms var(--ease);
+}
+.coreLink:hover {
+  color: var(--teal);
+}
+.coreLink:hover svg:last-child {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* Bounds + FAQ */
+.bounds {
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 1024px) {
+  .bounds {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 2rem + 4vw, 7rem);
+  }
+}
+.boundsLeft {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+.exclusions {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.exclusions li {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-block: 0.95rem;
+  border-bottom: 1px solid var(--line);
+  font-weight: 550;
+}
+.x {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(228, 87, 46, 0.12);
+  color: var(--accent-ink);
+  flex: none;
+}
+.x svg {
+  width: 14px;
+  height: 14px;
+}
+.faqHead {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.faqMore {
+  margin-top: 1.25rem;
+  color: var(--ink-2);
+}

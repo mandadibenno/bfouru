@@ -1,0 +1,59 @@
+/* BFourU design tokens v1.0 — generated from the brand source. Do not edit by hand. */
+:root {
+  --bf-ink: #10211C; /* Forest Ink — Primary — text, dark surfaces, primary buttons */
+  --bf-paper: #F3EFE7; /* Ivory Paper — Primary — main background */
+  --bf-accent: #E4572E; /* Persimmon — Signature accent — the mark’s dot, highlights, large accents */
+  --bf-teal: #1E6B58; /* Care Teal — Secondary — healthcare accent, success, links on light */
+  --bf-sage: #D3DFD3; /* Sage — Secondary surface — healthcare and calm sections */
+  --bf-marigold: #E9B44C; /* Marigold — Tertiary — illustrations, editorial italics on dark */
+  --bf-teal-dark: #0F2B25; /* Deep Teal — Illustration and screen surfaces */
+  --bf-white: #FBF8F2; /* Warm White — Cards and documents on paper */
+  --bf-paper2: #EAE4D8; /* Sand — Raised surfaces and alternating bands */
+  --bf-paper3: #DED6C6; /* Stone — Borders, chips, dividers */
+  --bf-ink2: #33433D; /* Ink 80 — Secondary text */
+  --bf-muted: #5A6862; /* Ink 60 — Tertiary text, captions (on light only) */
+  --bf-on-ink-muted: #A9B5AF; /* Mist — Secondary text on Forest Ink */
+  --bf-accent-ink: #A63A1B; /* Persimmon Deep — Accent for small text on light backgrounds */
+  --bf-font-display: 'Bricolage Grotesque', "Arial Narrow", Arial, "Helvetica Neue", sans-serif;
+  --bf-font-text: 'Instrument Sans', "Segoe UI", Roboto, Arial, sans-serif;
+  --bf-font-serif: 'Newsreader', Georgia, "Times New Roman", serif;
+  --bf-fs-display-x-l: clamp(3.1rem, 1.55rem + 6.9vw, 8rem);
+  --bf-fs-display-l: clamp(2.6rem, 1.6rem + 4.4vw, 5.25rem);
+  --bf-fs-h2: clamp(2.1rem, 1.45rem + 2.9vw, 3.75rem);
+  --bf-fs-h3: clamp(1.35rem, 1.15rem + 0.9vw, 1.9rem);
+  --bf-fs-h4: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
+  --bf-fs-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+  --bf-fs-body: clamp(1rem, 0.98rem + 0.1vw, 1.0625rem);
+  --bf-fs-small: 0.875rem;
+  --bf-fs-eyebrow: 0.75rem;
+  --bf-space-1: 4px;
+  --bf-space-2: 8px;
+  --bf-space-3: 12px;
+  --bf-space-4: 16px;
+  --bf-space-5: 24px;
+  --bf-space-6: 32px;
+  --bf-space-7: 48px;
+  --bf-space-8: 64px;
+  --bf-space-9: 96px;
+  --bf-space-10: 128px;
+  --bf-space-section: clamp(4.5rem, 3rem + 7vw, 10rem);
+  --bf-space-gutter: clamp(1rem, 4vw, 3.5rem);
+  --bf-radius-sm: 10px;
+  --bf-radius-md: 16px;
+  --bf-radius-lg: 28px;
+  --bf-radius-pill: 999px;
+  --bf-shadow-lift: 0 1px 0 rgba(16,33,28,.04), 0 12px 32px -12px rgba(16,33,28,.22);
+  --bf-shadow-panel: 0 30px 80px -30px rgba(16,33,28,.35);
+  --bf-ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --bf-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --bf-dur-feedback: 180ms;
+  --bf-dur-short: 320ms;
+  --bf-dur-reveal: 700ms;
+  --bf-dur-scene: 1100ms;
+  --bf-max-width: 1440px;
+  --bf-gutter: clamp(1rem, 4vw, 3.5rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --bf-dur-reveal: 0.001ms; --bf-dur-scene: 0.001ms; --bf-dur-short: 0.001ms; }
+}

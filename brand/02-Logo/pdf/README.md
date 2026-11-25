@@ -1,0 +1,1 @@
+Vector PDFs of every logo for print vendors. Reversed / mono-ivory / white versions are placed on a Forest Ink (or black) background so they are visible; ask the printer to use the artwork only, not the background. For the cleanest vector source, use the SVG files.

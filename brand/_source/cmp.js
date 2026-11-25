@@ -1,0 +1,4 @@
+const sharp=require("sharp");(async()=>{
+const r=(f,o)=>sharp(f).resize(o).png().toBuffer();
+const parts=[[await r("../02-Logo/png/bfouru-horizontal-full-colour-1200w.png",{height:140}),40,40],[await r("../../presentation/assets/brand/logo-ink.png",{height:140}),40,220],[await r("../02-Logo/png/bfouru-stacked-full-colour-600w.png",{height:260}),900,40],[await sharp({create:{width:700,height:200,channels:4,background:"#10211C"}}).png().toBuffer(),40,420],[await r("../02-Logo/png/bfouru-horizontal-reversed-600w.png",{height:90}),80,475],[await r("../02-Logo/favicon-and-app-icons/icon-180.png",{width:180}),900,420],[await r("../02-Logo/social-profile-icons/avatar-ink-1080.png",{width:300}),1120,420]];
+await sharp({create:{width:1500,height:760,channels:4,background:"#F3EFE7"}}).composite(parts.map(([input,left,top])=>({input,left,top}))).png().toFile("logo-compare.png");})().catch(e=>console.error(e.message));

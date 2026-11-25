@@ -1,0 +1,4 @@
+<!doctype html><script type="module">import * as pdfjs from 'file:///C:/Users/Pmand/Desktop/Bfouru/brand/_source/node_modules/pdfjs-dist/build/pdf.mjs';
+pdfjs.GlobalWorkerOptions.workerSrc = 'file:///C:/Users/Pmand/Desktop/Bfouru/brand/_source/node_modules/pdfjs-dist/build/pdf.worker.mjs';
+window.render = async (url, long) => { const doc = await pdfjs.getDocument({ url }).promise; const out = [];
+ for (let i = 1; i <= doc.numPages; i++) { const p = await doc.getPage(i); const v = p.getViewport({ scale: 1 }); const vp = p.getViewport({ scale: long / Math.max(v.width, v.height) }); const c = document.createElement('canvas'); c.width = vp.width; c.height = vp.height; await p.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise; out.push(c.toDataURL('image/png')); } return out; };</script>

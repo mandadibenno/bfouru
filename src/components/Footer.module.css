@@ -1,0 +1,121 @@
+.footer {
+  padding-top: var(--section);
+  overflow: hidden;
+}
+.top {
+  display: grid;
+  gap: 2.5rem;
+  padding-bottom: clamp(3rem, 2rem + 4vw, 6rem);
+}
+.signoff {
+  color: var(--on-ink);
+}
+.topCta {
+  display: grid;
+  gap: 1.5rem;
+  align-content: end;
+}
+.topText {
+  font-size: var(--fs-lead);
+  color: var(--on-ink-muted);
+  max-width: 26em;
+  line-height: 1.5;
+}
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+@media (min-width: 1024px) {
+  .top {
+    grid-template-columns: 1.6fr 1fr;
+    align-items: end;
+  }
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem var(--gap);
+  padding-block: 3rem;
+  border-top: 1px solid var(--line-on-ink);
+}
+.col ul {
+  display: grid;
+  gap: 0.65rem;
+}
+.col a {
+  color: var(--on-ink);
+  font-size: 0.98rem;
+}
+.colHead {
+  font-family: var(--font-text);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--on-ink-muted);
+  margin-bottom: 1.1rem;
+}
+.email {
+  word-break: break-all;
+}
+.note {
+  grid-column: 1 / -1;
+}
+.note p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--on-ink-muted);
+  max-width: 34em;
+}
+@media (min-width: 900px) {
+  .cols {
+    grid-template-columns: 1fr 1fr 1.1fr 1.4fr;
+  }
+  .note {
+    grid-column: auto;
+  }
+}
+
+.bottom {
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+}
+.giant {
+  display: flex;
+  align-items: center;
+  gap: 0.18em;
+  font-size: clamp(5rem, -0.2rem + 22vw, 20rem);
+  line-height: 0.8;
+  color: var(--on-ink);
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+  white-space: nowrap;
+}
+.giant span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  font-size: 0.82em;
+  transform: translateY(0.01em);
+}
+.giantMark {
+  width: 0.78em;
+  height: 0.78em;
+  flex: none;
+}
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-on-ink);
+  font-size: 0.85rem;
+  color: var(--on-ink-muted);
+}
+@media (max-width: 767px) {
+  .bottom {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+}
